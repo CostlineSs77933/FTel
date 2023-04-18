@@ -1,50 +1,33 @@
-fetch('data.json') // Replace with the URL of your API
-  .then(response => response.json())
-  .then(data => createForm(data.questions)) // Call the function to create the form with the fetched data
-  .catch(error => console.error('Error fetching API:', error));
-  function createForm(questions) {
-    const formContainer = document.getElementById('form-container');
-  
-    questions.forEach(question => {
-      const questionElement = document.createElement('div');
-  
-      // Create question label
-      const questionLabel = document.createElement('label');
-      questionLabel.textContent = question.label;
-      questionElement.appendChild(questionLabel);
-  
-      // Create question input(s)
-      if (question.type === 'radio') {
-        // Create radio buttons
-        question.options.forEach(option => {
-          const radioInput = document.createElement('input');
-          radioInput.type = 'radio';
-          radioInput.name = question.name;
-          radioInput.value = option.value;
-  
-          const radioLabel = document.createElement('label');
-          radioLabel.textContent = option.label;
-  
-          questionElement.gete(radioInput);
-          questionElement.appendChild(radioLabel);
-        });
-      } else if (question.type === 'checkbox') {
-        // Create checkboxes
-        question.options.forEach(option => {
-          const checkboxInput = document.createElement('input');
-          checkboxInput.type = 'checkbox';
-          checkboxInput.name = question.name;
-          checkboxInput.value = option.value;
-  
-          const checkboxLabel = document.createElement('label');
-          checkboxLabel.textContent = option.label;
-  
-          questionElement.appendChild(checkboxInput);
-          questionElement.appendChild(checkboxLabel);
-        });
-      }
-  
-      formContainer.appendChild(questionElement);
+const container = document.getElementById("question-container");
+
+fetch("data.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const questions = data.questions;
+
+    questions.forEach((question) => {
+      const group = document.createElement("group");
+      const label = document.createElement("label");
+      const input = document.createElement(question.type);
+
+      label.textContent = question.label;
+      input.name = question.name;
+
+      question.options.forEach((option) => {
+        const optionLabel = document.createElement("label");
+        const optionInput = document.createElement("input");
+
+        optionLabel.textContent = option.label;
+        optionInput.value = option.value;
+        optionInput.type = question.type;
+
+        group.appendChild(optionInput);
+        group.appendChild(optionLabel);
+      });
+
+      group.appendChild(input);
+      group.appendChild(label);
+
+      container.appendChild(group);
     });
-  }
-  
+  });
