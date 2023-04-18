@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FPT Telecom</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="item">
+                <form action="" method="POST" id="form-1">
+                    <h1 style="text-align: center;">Welcome</h1>
+
+                    <p style="text-align: center; font-size: smaller;">Answer some questions to connect!</p><br>
+
+                    <div class="form-group">
+                        <script src="script.js"></script>
+                            <button class="form-submit">CONNECT</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    <script src="logical.js"></script>
+    <script>
+        Validator({
+            form: '#form-1',
+            formGroupSelector: '#form-group',
+            errorSelector: '.form-message',
+            rules: [
+                Validator.isRequired('input[name="age"]', 'Please answer your age'),
+                Validator.isRequired('input[name="hobby"]', 'Please answer your hobbies'),
+            ],
+            onSubmit: function (data) {
+                console.log(data);
+            }
+        })
+    </script>
+</body>
+</html>

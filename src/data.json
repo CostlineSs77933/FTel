@@ -1,0 +1,75 @@
+{
+    "questions": [
+      {
+        "label": "What age are you?",
+        "type": "radio",
+        "name": "age",
+        "options": [
+          {
+            "value": "selection1_1",
+            "label": "From 16 to 20 years old"
+          },
+          {
+            "value": "selection1_2",
+            "label": "From 21 to 25 years old"
+          },
+          {
+            "value": "selection1_3",
+            "label": "From 26 to 30 years old"
+          },
+          {
+            "value": "selection1_4",
+            "label": "Over 30 years old"
+          }
+        ]
+      },
+      {
+        "label": "What are your hobbies? (Can choose multiple answer)",
+        "type": "checkbox",
+        "name": "hobby",
+        "options": [
+          {
+            "value": "selection2_1",
+            "label": "Traveling"
+          },
+          {
+            "value": "selection2_2",
+            "label": "Music"
+          },
+          {
+            "value": "selection2_3",
+            "label": "Sports"
+          },
+          {
+            "value": "selection2_4",
+            "label": "Reading book"
+          },
+          {
+            "value": "selection2_5",
+            "label": "Games"
+          },
+          {
+            "value": "selection2_6",
+            "label": "Shopping"
+          },
+          {
+            "value": "selection2_7",
+            "label": "Computing"
+          },
+          {
+            "value": "selection2_8",
+            "label": "Studying"
+          },
+          {
+            "value": "selection2_9",
+            "label": "Writing"
+          },
+          {
+            "value": "selection2_10",
+            "label": "Foods"
+          }
+        ]
+      }
+    ]
+  }
+  
