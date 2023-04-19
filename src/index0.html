@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FPT Telecom</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		body {
+			background-image: url('abc.com/img.png');
+			background-size: cover;
+			background-position-x: center;
+			background-repeat: no-repeat;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		button {
+			padding: 10px 20px;
+			background-color: #FF9900;
+			border: none;
+			color: white;
+			font-size: 16px;
+			font-weight: bold;
+			cursor: pointer;
+			position: absolute;
+			top: 500px;
+			
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Button to connect -->
+	<button onclick="connectToLandingPage()">CONNECT</button>
+
+
+	<!-- JSON data -->
+	<script>
+		const json = {
+		    "landing_page": "abc.com",
+		    "img": "abc.com/img.png"
+		};
+
+		// Function to connect to landing page
+		function connectToLandingPage() {
+			window.location.href = json.landing_page;
+		}
+	</script>
+		
+</body>
+</html>

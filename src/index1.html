@@ -1,42 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>FPT Telecom</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <div class="content">
-            <div class="item">
-                <form action="" method="POST" id="form-1">
-                    <h1 style="text-align: center;">Welcome</h1>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPT Telecom</title>
+	<style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+		body {
+			background-image: url('abc.com/img.png');
+			background-size: cover;
+            background-position-x: center;
+            background-repeat: no-repeat;
 
-                    <p style="text-align: center; font-size: smaller;">Answer some questions to connect!</p><br>
+		}
+		form {
+			margin: 20px auto;
+			max-width: 500px;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            display: flex;
+            justify-content: space-around;
+            flex-flow: column wrap;
+            backdrop-filter: blur(25px);
+		}
+		button {
+			padding: 10px 20px;
+			background-color: #3498db;
+			border: none;
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- Form with questions -->
+	<form>
+		<!-- Question 1 -->
+		<label for="question1"><strong>Câu hỏi 1:</strong></label><br>
+		<div id="question1">
+			<!-- Answers for question 1 -->
+			<script>
+				var json = {
+				    "landing_page": "abc.com",
+				    "img": "abc.com/img.png",
+				    "questions": [
+				        {
+				            "question": "Câu hỏi 1",
+				            "answers": [
+				                "Phương án 1",
+				                "Phương án 2",
+				                "Phương án 3"
+				            ],
+				            "type": "select"
+				        },
+				        {
+				            "question": "Câu hỏi 2",
+				            "answers": [
+				                "Phương án 1",
+				                "Phương án 2",
+				                "Phương án 3",
+				                "Phương án 4",
+				                "Phương án 5"
+				            ],
+				            "type": "multi-select"
+				        }
+				    ]
+				};
+				// Create radio inputs for question 1
+				var question1 = document.getElementById("question1");
+				var answers1 = json.questions[0].answers;
+				for (var i = 0; i < answers1.length; i++) {
+					var input = document.createElement("input");
+					input.type = "radio";
+					input.name = "question1";
+					input.value = answers1[i];
+					var label = document.createElement("label");
+					label.appendChild(input);
+					label.appendChild(document.createTextNode(answers1[i]));
+					question1.appendChild(label);
+					question1.appendChild(document.createElement("br"));
+                    question1.appendChild(document.createElement("br"));
+				}
+			</script>
+		</div>
 
-                    <div id="question-container" class="form-group">                      
-                        <script src="script.js"></script>
-                    </div>
-                    
-                    <button class="form-submit">CONNECT</button>
-                </form>
-            </div>
-        </div>
-    <script src="logical.js"></script>
-    <script>
-        Validator({
-            form: '#form-1',
-            formGroupSelector: '#form-group',
-            errorSelector: '.form-message',
-            rules: [
-                Validator.isRequired('input[name="age"]', 'Please answer your age'),
-                Validator.isRequired('input[name="hobby"]', 'Please answer your hobbies'),
-            ],
-            onSubmit: function (data) {
-                console.log(data);
-            }
-        })
-    </script>
+		<!-- Question 2 -->
+		<label for="question2"><strong>Câu hỏi 2:</strong></label><br>
+		<div id="question2">
+			<!-- Answers for question 2 -->
+			<script>
+				// Create checkbox inputs for question 2
+				var question2 = document.getElementById("question2");
+				var answers2 = json.questions[1].answers;
+				for (var i = 0; i < answers2.length; i++) {
+					var input = document.createElement("input");
+					input.type = "checkbox";
+					input.name = "question2[]";
+					input.value = answers2[i];
+					var label = document.createElement("label");
+					label.appendChild(input);
+					label.appendChild(document.createTextNode(answers2[i]));
+					question2.appendChild(label);
+				    question2.appendChild(document.createElement("br"));
+                    question2.appendChild(document.createElement("br"));
+			}
+		</script>
+	</div>
+
+	<!-- Submit button -->
+	<button type="submit">Submit</button>
+</form>
 </body>
 </html>

@@ -5,74 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FPT Telecom</title>
-    <link rel="stylesheet" href="index.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <style>
+        body {
+          background-image: url("abc.com/img.png");
+          font-family: Arial, sans-serif;
+          background-repeat: no-repeat;
+          background-position-x: center;
+        }
+        form {
+          max-width: 500px;
+          margin: 0 auto;
+          display: flex;
+          flex-flow: column wrap;
+          backdrop-filter: blur(25px);
+          
+        }
+        h1 {
+          text-align: center;
+        }
+        input[type="text"] {
+          padding: 10px;
+          font-size: 16px;
+          border: 1px solid black;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+        input[type="submit"] {
+          background-color: #4caf50;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        input[type="submit"]:hover {
+          background-color: #3e8e41;
+        }
+    </style>
 </head>
 <body>
-        <div class="content">
-            <div class="item">
-                <form action="" method="POST" id="form-1">
-                    <h1 style="text-align: center;">Welcome</h1>
-                    <p style="text-align: center; font-size: smaller;">Please complete the information</p><br>
-
-                    <div class="form-group">
-                        <label for="username" class="form-label">User Name</label><br><br>
-                        <input type="text" id="username" name="username" placeholder="Please enter name" class="form-input">
-                        <span class="form-message"></span><br><br>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email</label><br><br>
-                        <input type="email" id="email" name="email" placeholder="Please enter your email" class="form-input">
-                        <span class="form-message"></span><br><br>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phonenumber" class="form-label">Phone Number</label><br><br>
-                        <input type="text" id="phonenumber" name="phonenumber" placeholder="Please enter phone number" class="form-input">
-                        <span class="form-message"></span><br><br>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password" class="form-label">Password</label><br><br>
-                        <input type="password" id="password" name="password" placeholder="Please enter password" class="form-input">
-                        <span class="form-message"></span><br><br>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="passwordconfirm" class="form-label">Password Confirmation</label><br><br>
-                        <input type="password" id="passwordconfirm" name="passwordconfirm" placeholder="Confirm password" class="form-input">
-                        <span class="form-message"></span><br><br><br>
-                    </div>
-                    
-                    <button class="form-submit">CONNECT</button>
-                    
-                </form>
-            </div>
-        </div>
-   
-    <script src="logical.js"></script>
-    <script>
-        Validator({
-            form: '#form-1',
-            formGroupSelector: '#form-group',
-            errorSelector: '.form-message',
-            rules: [
-                Validator.isRequired('#username'),
-                Validator.isRequired('#phonenumber'),
-                Validator.isRequired('#email'),
-                Validator.isEmail('#email'),
-                Validator.isRequired('#password'),
-                Validator.minLength('#password', 8),
-                Validator.isRequired('#passwordconfirm'),
-                Validator.isConfirmation('#passwordconfirm', function () {
-                    return document.querySelector('#form-1 #password').value;
-                }, 'Confirmation password does not match'),
-            ],
-            onSubmit: function (data) {
-                console.log(data);
-            }
-        })
-    </script>
-
+  <form>
+    <h1>Quiz Page</h1>
+    <div id="questions" class="form-group"></div>
+    <span class="form-message"></span>
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+    const json = {
+      "landing_page": "abc.com",
+      "img": "abc.com/img.png",
+      "questions": [
+        {
+          "question": "Câu hỏi 1: ",
+          "type": "so"
+        },
+        {
+          "question": "Câu hỏi 2: ",
+          "type": "chu"
+        }
+      ]
+    };
+    const questionContainer = document.getElementById("questions");
+    json.questions.forEach((question) => {
+      const div = document.createElement("div");
+      const label = document.createElement("label");
+      label.textContent = question.question;
+      const input = document.createElement("input");
+      input.type = "text";
+      input.id = question.question.replace(" ", "_");
+      input.name = question.question.replace(" ", "_");
+      input.required = true;
+      if (question.type === "so") {
+        input.pattern = "[0-9]*";
+      } else if (question.type === "chu") {
+        input.pattern = "[A-Za-z]*";
+      }
+      div.appendChild(label);
+      div.appendChild(document.createElement("br"));
+      div.appendChild(input);
+      questionContainer.appendChild(div);
+    });
+  </script>
 </body>
 </html>
