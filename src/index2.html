@@ -6,46 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FPT Telecom</title>
     <link rel="stylesheet" href="index.css" />
-    <!-- <style>
-      body {
-        background-image: url("abc.com/img.png");
-        font-family: Arial, sans-serif;
-        background-repeat: no-repeat;
-        background-position-x: center;
-      }
-      form {
-        max-width: 500px;
-        margin: 0 auto;
-        display: flex;
-        flex-flow: column wrap;
-        backdrop-filter: blur(25px);
-        margin-top: 130px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(25px);
-      }
-      input[type="text"] {
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid black;
-        border-radius: 5px;
-        margin: 10px;
-        flex: 1;
-      }
-      input[type="submit"] {
-        background-color: #ff9900;
-        color: white;
-        padding: 12px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        flex: 1;
-      }
-      input[type="submit"]:hover {
-        background-color: chocolate;
-      }
-    </style> -->
+    <style></style>
   </head>
   <body>
     <form id="form-1" method="POST" action="" class="content">
@@ -94,14 +55,15 @@
           </script>
         </div>
       </div><br>
-      <span class="form-message"></span>
-      <input type="submit" value="Submit" class="form-submit">
+      <span class="form-message"></span><br><br><br><br>    
+      <button type="submit"class="form-submit">SUBMIT</button>
     </form>
     <script src="logical.js"></script>
     <script>
       Validator({
         form: '#form-1',
         formGroupSelector: '.form-group',
+        errorSelector: '.form-message',
         rules: [
           Validator.isRequired('input[name="Câu_hỏi 1:"]'),
           Validator.isRequired('input[name="Câu_hỏi 2:"]'),

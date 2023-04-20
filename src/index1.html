@@ -41,15 +41,15 @@
 				  ],
 				};
 				// Create radio inputs for question 1
-				var question1 = document.getElementById("question1");
-				var answers1 = json.questions[0].answers;
+				const question1 = document.getElementById("question1");
+				const answers1 = json.questions[0].answers;
 				for (var i = 0; i < answers1.length; i++) {
 					var input = document.createElement("input");
 					input.type = "radio";
 					input.name = "question1";
 					input.value = answers1[i];
 					input.className = ("form-input")
-					var label = document.createElement("label");
+					const label = document.createElement("label");
 					label.appendChild(input);
 					label.appendChild(document.createTextNode(answers1[i]));
 					question1.appendChild(label);
@@ -95,7 +95,9 @@
 	<script src="logical.js"></script>
 	<script>
 		Validator({
-			form:'#form-1',
+			form: '#form-1',
+			formGroupSelector: '.form-group',
+			errorSelector: '.form-message',
 			rules: [
 				Validator.isRequired('input[name="question1"]'),
 				Validator.isRequired('input[name="question2"]'),
