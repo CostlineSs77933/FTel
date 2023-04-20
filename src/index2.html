@@ -1,92 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FPT Telecom</title>
-    <!-- <link rel="stylesheet" href="index.css"> -->
-    <style>
-        body {
-          background-image: url("abc.com/img.png");
-          font-family: Arial, sans-serif;
-          background-repeat: no-repeat;
-          background-position-x: center;
-        }
-        form {
-          max-width: 500px;
-          margin: 0 auto;
-          display: flex;
-          flex-flow: column wrap;
-          backdrop-filter: blur(25px);
-          
-        }
-        h1 {
-          text-align: center;
-        }
-        input[type="text"] {
-          padding: 10px;
-          font-size: 16px;
-          border: 1px solid black;
-          border-radius: 5px;
-          margin-bottom: 10px;
-        }
-        input[type="submit"] {
-          background-color: #4caf50;
-          color: white;
-          padding: 12px 20px;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-size: 16px;
-        }
-        input[type="submit"]:hover {
-          background-color: #3e8e41;
-        }
-    </style>
-</head>
-<body>
-  <form>
-    <h1>Quiz Page</h1>
-    <div id="questions" class="form-group"></div>
-    <span class="form-message"></span>
-    <input type="submit" value="Submit">
-  </form>
-  <script>
-    const json = {
-      "landing_page": "abc.com",
-      "img": "abc.com/img.png",
-      "questions": [
-        {
-          "question": "Câu hỏi 1: ",
-          "type": "so"
-        },
-        {
-          "question": "Câu hỏi 2: ",
-          "type": "chu"
-        }
-      ]
-    };
-    const questionContainer = document.getElementById("questions");
-    json.questions.forEach((question) => {
-      const div = document.createElement("div");
-      const label = document.createElement("label");
-      label.textContent = question.question;
-      const input = document.createElement("input");
-      input.type = "text";
-      input.id = question.question.replace(" ", "_");
-      input.name = question.question.replace(" ", "_");
-      input.required = true;
-      if (question.type === "so") {
-        input.pattern = "[0-9]*";
-      } else if (question.type === "chu") {
-        input.pattern = "[A-Za-z]*";
+    <link rel="stylesheet" href="index.css" />
+    <!-- <style>
+      body {
+        background-image: url("abc.com/img.png");
+        font-family: Arial, sans-serif;
+        background-repeat: no-repeat;
+        background-position-x: center;
       }
-      div.appendChild(label);
-      div.appendChild(document.createElement("br"));
-      div.appendChild(input);
-      questionContainer.appendChild(div);
-    });
-  </script>
-</body>
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: column wrap;
+        backdrop-filter: blur(25px);
+        margin-top: 130px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(25px);
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 10px;
+        flex: 1;
+      }
+      input[type="submit"] {
+        background-color: #ff9900;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        flex: 1;
+      }
+      input[type="submit"]:hover {
+        background-color: chocolate;
+      }
+    </style> -->
+  </head>
+  <body>
+    <form id="form-1" method="POST" action="" class="content">
+      <h1 style="text-align: center; margin: auto; margin-top: 10px;">Welcome</h1>
+      <h7 style="text-align: center;">Please answer the questions</h7>
+      <div class="form-group">
+        <div id="questions" class="form-input">
+          <script>
+            const json = {
+              "landing_page": "abc.com",
+              "img": "abc.com/img.png",
+              "questions": [
+                {
+                  "question": "Câu hỏi 1: ",
+                  "type": "so",
+                },
+                {
+                  "question": "Câu hỏi 2: ",
+                  "type": "chu",
+                },
+              ],
+            };
+            const questionContainer = document.getElementById("questions");
+            json.questions.forEach((question) => {
+              const div = document.createElement("div");
+              const label = document.createElement("label");
+              label.textContent = question.question;
+              const input = document.createElement("input");
+              input.type = "text";
+              input.id = question.question.replace(" ", "_");
+              input.name = question.question.replace(" ", "_");
+              input.className = "form-input";
+              if (question.type === "so") {
+                input.pattern = "[0-9]*";
+              } else if (question.type === "chu") {
+                input.pattern = "[A-Za-z]*";
+              }
+              const span = document.createElement("span");
+              span.className = "form-message";
+              div.appendChild(label);
+              div.appendChild(document.createElement("br"));
+              div.appendChild(input);
+              div.appendChild(span)
+              questionContainer.appendChild(div);
+            });
+          </script>
+        </div>
+      </div><br>
+      <span class="form-message"></span>
+      <input type="submit" value="Submit" class="form-submit">
+    </form>
+    <script src="logical.js"></script>
+    <script>
+      Validator({
+        form: '#form-1',
+        formGroupSelector: '.form-group',
+        rules: [
+          Validator.isRequired('input[name="Câu_hỏi 1:"]'),
+          Validator.isRequired('input[name="Câu_hỏi 2:"]'),
+        ],
+        onSubmit: function(data) {
+          console.log(data);
+        }
+      })
+    </script>
+  </body>
 </html>
