@@ -1,85 +1,69 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FPT Telecom</title>
-    <link rel="stylesheet" href="index.css" />
-    <style>
-      /* * {
-        margin: 0;
-        padding: 0;
-        text-align: center;
-      }
-      body {
-        background-image: url("abc.com/img.png");
-        background-size: cover;
-        background-position-x: center;
-        background-repeat: no-repeat;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      } */
-      button {
-        padding: 10px 20px;
-        background-color: #ff9900;
-        border: none;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        position: absolute;
-        top: 500px;
-      }
-      .content {
-        border: 0;
-        border-radius: 0;
-        backdrop-filter: blur(0);
-        box-shadow: none;
-		overflow: unset;
-      }
-      .form-submit {
-        text-align: center;
-        border: 0;
-        width: 97%;
-        height: 35px;
-        border-radius: 3px;
-        background-color: #ff9900;
-        color: #f5f5f5;
-        font-weight: bold;
-        margin-left: 8px;
-      }
 
-      .form-submit:hover {
-        background-color: chocolate;
-      }
-    </style>
-  </head>
-  <body>
-    <form class="content">
-      <div class="form-group">
-        <div>
-          <button class="form-submit" onclick="connectToLandingPage()">
-            CONNECT
-          </button>
-        </div>
-      </div>
-    </form>
-    <!-- Button to connect -->
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>FPT Telecom</title>
+	<link rel="stylesheet" href="index.css" />
+	<style>
+		button {
+			padding: 10px 20px;
+			background-color: #ff9900;
+			border: none;
+			color: white;
+			font-size: 16px;
+			font-weight: bold;
+			cursor: pointer;
+			position: absolute;
+			top: 500px;
+		}
 
-    <!-- JSON data -->
-    <script>
-      const json = {
-        landing_page: "abc.com",
-        img: "abc.com/img.png",
-      };
+		.content {
+			border: 0;
+			border-radius: 0;
+			backdrop-filter: blur(0);
+			box-shadow: none;
+			overflow: unset;
+		}
 
-      // Function to connect to landing page
-      function connectToLandingPage() {
-        window.location.href = json.landing_page;
-      }
-    </script>
-  </body>
+		.form-submit {
+			text-align: center;
+			border: 0;
+			width: 97%;
+			height: 35px;
+			border-radius: 3px;
+			background-color: #ff9900;
+			color: #f5f5f5;
+			font-weight: bold;
+			margin-left: 8px;
+		}
+
+		.form-submit:hover {
+			background-color: chocolate;
+		}
+	</style>
+</head>
+
+<body>
+	<form class="content" method="POST" action="" id="form-1">
+		<div class="form-group">
+			<button class="form-submit" onclick="connectToLandingPage()">CONNECT</button>
+		</div>
+		<!-- JSON data -->
+		<script>
+			const json = {
+				"landing_page": "abc.com",
+				"img": "abc.com/img.png",
+			};
+
+			// Function to connect to landing page
+			function connectToLandingPage() {
+				window.location.href = json.landing_page;
+			}
+		</script>
+	</form>
+</body>
+
 </html>

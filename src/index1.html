@@ -11,7 +11,7 @@
     <!-- Form with questions -->
     <form id="form-1" action="" method="POST" class="content">
 		<h1 style="text-align: center; margin: auto; margin-top: 10px;">Welcome</h1><br>
-		<h7 style="text-align: center;">Please answer the questions</h7><br><br>
+		<p style="text-align: center;">Please answer the questions</p><br>
 		<!-- Question 1 -->
 		<div class="form-group">
 			<label for="question1"><strong>Câu hỏi 1:</strong></label><br><br>
@@ -48,8 +48,8 @@
 					input.type = "radio";
 					input.name = "question1";
 					input.value = answers1[i];
-					input.className = ("form-input")
 					const label = document.createElement("label");
+					label.className = ("form-label")
 					label.appendChild(input);
 					label.appendChild(document.createTextNode(answers1[i]));
 					question1.appendChild(label);
@@ -58,6 +58,7 @@
 				}
 			  </script>
 			</div>
+			<span class="form-message"></span>
 		</div><br>
 
 
@@ -74,10 +75,10 @@
 			  for (var i = 0; i < answers2.length; i++) {
 				var input = document.createElement("input");
 				input.type = "checkbox";
-				input.name = "question2[]";
+				input.name = "question2";
 				input.value = answers2[i];
-				input.className = ("form-input")
 				var label = document.createElement("label");
+				label.className = ("form-label")
 				label.appendChild(input);
 				label.appendChild(document.createTextNode(answers2[i]));
 				question2.appendChild(label);
@@ -86,7 +87,8 @@
 			  }
 			</script>
 		  </div>
-	  </div>
+		  <span class="form-message"></span><br><br>
+		</div>
 
       <!-- Submit button -->
       <button type="submit" class="form-submit">Submit</button>
@@ -99,8 +101,8 @@
 			formGroupSelector: '.form-group',
 			errorSelector: '.form-message',
 			rules: [
-				Validator.isRequired('input[name="question1"]'),
-				Validator.isRequired('input[name="question2"]'),
+				Validator.isRequired('input[name="question1"]', 'Please choose an answer'),
+				Validator.isRequired('input[name="question2"]', 'Please choose an answer'),
 			],
 			onSubmit: function(data) {
 				console.log(data);

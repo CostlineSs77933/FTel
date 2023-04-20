@@ -11,11 +11,11 @@
   <body>
     <form id="form-1" method="POST" action="" class="content">
       <h1 style="text-align: center; margin: auto; margin-top: 10px;">Welcome</h1>
-      <h7 style="text-align: center;">Please answer the questions</h7>
+      <p style="text-align: center;">Please answer the questions</p>
       <div class="form-group">
-        <div id="questions" class="form-input">
+        <div id="questions">
           <script>
-            const json = {
+            var json = {
               "landing_page": "abc.com",
               "img": "abc.com/img.png",
               "questions": [
@@ -34,6 +34,7 @@
               const div = document.createElement("div");
               const label = document.createElement("label");
               label.textContent = question.question;
+              label.className = "form-label";
               const input = document.createElement("input");
               input.type = "text";
               input.id = question.question.replace(" ", "_");
@@ -44,19 +45,17 @@
               } else if (question.type === "chu") {
                 input.pattern = "[A-Za-z]*";
               }
-              const span = document.createElement("span");
-              span.className = "form-message";
+              div.appendChild(document.createElement("br"));
               div.appendChild(label);
               div.appendChild(document.createElement("br"));
               div.appendChild(input);
-              div.appendChild(span)
               questionContainer.appendChild(div);
             });
           </script>
         </div>
+        <span class="form-message"></span><br>   
       </div><br>
-      <span class="form-message"></span><br><br><br><br>    
-      <button type="submit"class="form-submit">SUBMIT</button>
+      <button type="submit" class="form-submit">SUBMIT</button>
     </form>
     <script src="logical.js"></script>
     <script>
@@ -65,8 +64,8 @@
         formGroupSelector: '.form-group',
         errorSelector: '.form-message',
         rules: [
-          Validator.isRequired('input[name="Câu_hỏi 1:"]'),
-          Validator.isRequired('input[name="Câu_hỏi 2:"]'),
+          Validator.isRequired('input[name="Câu_hỏi 1: "]'),
+          Validator.isRequired('input[name="Câu_hỏi 2: "]'),
         ],
         onSubmit: function(data) {
           console.log(data);
