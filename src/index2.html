@@ -4,73 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FPT Telecom</title>
-    <link rel="stylesheet" href="index.css" />
-    <style></style>
+    <link rel="stylesheet" href="./style/index.css">
+    <title>Document</title>
   </head>
   <body>
-    <form id="form-1" method="POST" action="" class="content">
+    <form id="form-1" action="" method="POST" class="content">
       <h1 style="text-align: center; margin: auto; margin-top: 10px;">Welcome</h1>
-      <p style="text-align: center;">Please answer the questions</p>
+      <p style="text-align: center;">Please answer the questions</p><br>
       <div class="form-group">
-        <div id="questions">
-          <script>
-            var json = {
-              "landing_page": "abc.com",
-              "img": "abc.com/img.png",
-              "questions": [
-                {
-                  "question": "Câu hỏi 1: ",
-                  "type": "so",
-                },
-                {
-                  "question": "Câu hỏi 2: ",
-                  "type": "chu",
-                },
-              ],
-            };
-            const questionContainer = document.getElementById("questions");
-            json.questions.forEach((question) => {
-              const div = document.createElement("div");
-              const label = document.createElement("label");
-              label.textContent = question.question;
-              label.className = "form-label";
-              const input = document.createElement("input");
-              input.type = "text";
-              input.id = question.question.replace(" ", "_");
-              input.name = question.question.replace(" ", "_");
-              input.className = "form-input";
-              if (question.type === "so") {
-                input.pattern = "[0-9]*";
-              } else if (question.type === "chu") {
-                input.pattern = "[A-Za-z]*";
-              }
-              div.appendChild(document.createElement("br"));
-              div.appendChild(label);
-              div.appendChild(document.createElement("br"));
-              div.appendChild(input);
-              questionContainer.appendChild(div);
-            });
-          </script>
-        </div>
-        <span class="form-message"></span><br>   
-      </div><br>
-      <button type="submit" class="form-submit">SUBMIT</button>
-    </form>
-    <script src="logical.js"></script>
-    <script>
-      Validator({
-        form: '#form-1',
-        formGroupSelector: '.form-group',
-        errorSelector: '.form-message',
-        rules: [
-          Validator.isRequired('input[name="Câu_hỏi 1: "]'),
-          Validator.isRequired('input[name="Câu_hỏi 2: "]'),
-        ],
-        onSubmit: function(data) {
-          console.log(data);
-        }
-      })
-    </script>
+        <div id="data"></div>
+        <span class="form-message"></span>
+	</div><br>
+	<button type="submit" class="form-submit">Submit</button>
+	<script src="./javascript/index2.js"></script>
+</form>
+
   </body>
 </html>
